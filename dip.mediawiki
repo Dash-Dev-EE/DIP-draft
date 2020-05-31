@@ -116,17 +116,12 @@ This proposal is not backwards compatible with ...
 = References =
 <!-- The reference implementation must be completed before any BIP is given status "Final", but it need not be completed before the BIP is accepted. It is better to finish the specification and rationale first and reach consensus on it before writing code. The final implementation must include test code and documentation appropriate for the Bitcoin protocol -->
 
-Bitcoin Cash request to restore disabled opcodes: https://github.com/schancel/spec/blob/5e9319028e85321c24eac9fe4b47e60c42b315bc/may-2018-reenabled-opcodes.md
-
-Bitcoin Cash OP_CAT implementation: https://reviews.bitcoinabc.org/D1097
-
-Bitcoin Cash OP_SPLIT implementation: https://reviews.bitcoinabc.org/D1099
-
-Bitcoin Cash OP_BIN2NUM implementation: https://reviews.bitcoinabc.org/D1101
-
-Bitcoin Cash OP_NUM2BIN implementation: https://reviews.bitcoinabc.org/D1103
-
-Bitcoin Cash OP_CHECKDATASIG specification: https://github.com/bitcoincashorg/bitcoincash.org/blob/master/spec/op_checkdatasig.md
+* Bitcoin Cash request to restore disabled opcodes: https://github.com/schancel/spec/blob/5e9319028e85321c24eac9fe4b47e60c42b315bc/may-2018-reenabled-opcodes.md
+* Bitcoin Cash OP_CAT implementation: https://reviews.bitcoinabc.org/D1097
+* Bitcoin Cash OP_SPLIT implementation: https://reviews.bitcoinabc.org/D1099
+* Bitcoin Cash OP_BIN2NUM implementation: https://reviews.bitcoinabc.org/D1101
+* Bitcoin Cash OP_NUM2BIN implementation: https://reviews.bitcoinabc.org/D1103
+* Bitcoin Cash OP_CHECKDATASIG specification: https://github.com/bitcoincashorg/bitcoincash.org/blob/master/spec/op_checkdatasig.md
 
 = Copyright =
 <!-- The BIP must be explicitly licensed under acceptable copyright terms -->
