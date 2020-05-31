@@ -1,0 +1,51 @@
+BIP: ?
+Layer: Consensus (hard fork)
+Title: Activating old and implementing new opcodes
+Author: Minu Nimi <minu@nimi.com>
+Comments-Summary: No comments yet.
+Comments-URI: https://github.com/bitcoin/bips/wiki/Comments:BIP-?
+Status: Draft
+Type: Standards Track
+Created: 2020-06-01
+License: CC0-1.0
+
+
+= Abstract =
+<!-- A short (~200 word) description of the technical issue being addressed -->
+
+This BIP describes reactivation of disabled opcodes (OP_CAT), activation of new opcodes (OP_SPLIT, OP_BIN2NUM, OP_NUM2BIN, OP and OP_CHECKDATASIGVERIFY) to expand the use of scripting language and enable the creation of trustless smart card payment system.
+
+= Motivation =
+<!-- The motivation is critical for BIPs that want to change the Bitcoin protocol. It should clearly explain why the existing protocol is inadequate to address the problem that the BIP solves -->
+
+= Specification =
+<!-- The technical specification should describe the syntax and semantics of any new feature. The specification should be detailed enough to allow competing, interoperable implementations for any of the current Bitcoin platforms -->
+
+== OP_CAT ==
+
+== OP_SPLIT ==
+
+== OP_BIN2NUM and OP_NUM2BIN ==
+
+== OP_DATASIGVERIFY ==
+<!-- BUIP: https://github.com/BitcoinUnlimited/BUIP/blob/master/078.mediawiki -->
+
+
+
+= Signing and Verifying =
+
+
+= Rationale =
+<!-- The rationale fleshes out the specification by describing what motivated the design and why particular design decisions were made. It should describe alternate designs that were considered and related work. The rationale should provide evidence of consensus within the community and discuss important objections or concerns raised during discussion -->
+
+= Compatibility =
+<!-- All BIPs that introduce backwards incompatibilities must include a section describing these incompatibilities and their severity. The BIP must explain how the author proposes to deal with these incompatibilities -->
+This proposal is not backwards compatible with ...
+
+
+= References =
+<!-- The reference implementation must be completed before any BIP is given status "Final", but it need not be completed before the BIP is accepted. It is better to finish the specification and rationale first and reach consensus on it before writing code. The final implementation must include test code and documentation appropriate for the Bitcoin protocol -->
+
+= Copyright =
+<!-- The BIP must be explicitly licensed under acceptable copyright terms -->
+This document is licenced as Creative Commons CC0 1.0 Universal.
