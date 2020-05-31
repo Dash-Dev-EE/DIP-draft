@@ -1,13 +1,15 @@
-BIP: ?
+<pre>
+DIP: ?
 Layer: Consensus (hard fork)
 Title: Activating old and implementing new opcodes
-Author: Minu Nimi <minu@nimi.com>
+Author: Andreas Halman, Mart Mangus
 Comments-Summary: No comments yet.
-Comments-URI: https://github.com/bitcoin/bips/wiki/Comments:BIP-?
+Comments-URI: https://github.com/dashpay/dips/wiki/Comments:DIP-?
 Status: Draft
 Type: Standards Track
 Created: 2020-06-01
 License: CC0-1.0
+</pre>
 
 = Abstract =
 <!-- A short (~200 word) description of the technical issue being addressed -->
