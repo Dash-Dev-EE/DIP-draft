@@ -8,7 +8,7 @@ Comments-URI: https://github.com/dashpay/dips/wiki/Comments:DIP-?
 Status: Draft
 Type: Standards Track
 Created: 2020-06-01
-License: CC0-1.0
+License: MIT License
 </pre>
 
 = Abstract =
