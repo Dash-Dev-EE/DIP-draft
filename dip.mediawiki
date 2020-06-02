@@ -35,17 +35,15 @@ x1 x2 OP_CAT → out
 
 
 Example:
-* Ox11 0x2233 OP_CAT → 0x112233
+* 0x11 0x2233 OP_CAT → 0x112233
 
 The operator must fail if:
 * len(''out'') > MAX_SCRIPT_ELEMENT_SIZE
-
 
 == OP_SPLIT ==
 OP_SPLIT inverse of OP_CAT and is a replacement operation for disabled opcode OP_SUBSTR, OP_LEFT and OP_RIGHT.
 
 OP_SPLIT takes a byte array, splits it at the position ''n'' (a number) and returns 
-
 
 x n OP_SPLIT → x1 x2
 
@@ -58,21 +56,15 @@ Examples:
 
 
 ''x'' is split at position ''n'', where ''n'' is the number of bytes from the beginning
-
 ''x1'' will be the first ''n'' bytes of ''x'' and ''x2'' will be the remaining bytes
-
 if ''n'' == 0, then x1 is the empty array and ''x2'' == ''x''
-
 if ''n'' == len(''x'') then ''x1'' == ''x'' and ''x2'' is the empty array.
-
 if ''n'' > len(''x''), then the operator must fail.
-
 
 The operator must fail if:
 * !isnum(''n''). Fail if ''n'' is not a number.
 * ''n'' < 0. Fail if ''n'' is negative.
 * ''n'' > len(''x''). Fail if ''n'' is too high.
-
 
 == OP_NUM2BIN ==
 OP_NUM2BIN converts numeric value ''n'' to a byte array of length ''m''
