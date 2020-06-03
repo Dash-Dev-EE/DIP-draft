@@ -121,12 +121,12 @@ If the stack is well formed, then `OP_CHECKDATASIG` pops the top three elements 
 # Rationale
 <!-- The rationale fleshes out the specification by describing what motivated the design and why particular design decisions were made. It should describe alternate designs that were considered and related work. The rationale should provide evidence of consensus within the community and discuss important objections or concerns raised during discussion -->
 
-...
+TODO: Here a little explination why on card UTXO management is bad and these opcodes help us out.
 
 # Compatibility
 <!-- All BIPs that introduce backwards incompatibilities must include a section describing these incompatibilities and their severity. The BIP must explain how the author proposes to deal with these incompatibilities -->
 
-This proposal is not backwards compatible with ...
+TODO: Here a description why hardfork is better then softfork for this DIP.
 
 
 # References
