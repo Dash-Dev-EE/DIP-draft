@@ -42,6 +42,7 @@ The operator must fail if:
 
 ## OP_SPLIT
 `OP_SPLIT` inverse of `OP_CAT` and is a replacement operation for disabled opcode `OP_SUBSTR`, `OP_LEFT` and `OP_RIGHT`.
+
 `OP_SPLIT` takes a byte array, splits it at the position `n` (a number) and returns
 
 `x n OP_SPLIT → x1 x2`
