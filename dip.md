@@ -34,8 +34,8 @@ One use case is in trustless smart card payment system where the use of these ne
 |OP_SPLIT              |127    |0x7f|x n   |x1 x2   |Split byte array *x* at position *n*                   |
 |OP_NUM2BIN            |128    |0x80|a b   |out     |Convert numeric *a* into byte array of length *b*      |
 |OP_BIN2NUM            |129    |0x81|x     |out     |Convert byte array *x* into numeric                    |
-|OP_CHECKDATASIG       |186    |0xba|s m pk|out     |If signature *s* is valid, output to the stack          |
-|OP_CHECKDATASIGVERIFY |187    |0xbb|s m pk|        |If signature *s* is valid, false will cause the script to fail|
+|OP_CHECKDATASIG       |186    |0xba|sig&nbsp;msg&nbsp;pk|out     |If signature *sig* is valid, output to the stack          |
+|OP_CHECKDATASIGVERIFY |187    |0xbb|sig&nbsp;msg&nbsp;pk|        |If signature *sig* is valid, false will cause the script to fail|
 
 ## OP_CAT
 `OP_CAT` takes two byte arrays from the stack, concates and pushes the result back to the stack.
