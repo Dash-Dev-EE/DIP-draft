@@ -26,6 +26,18 @@ Several opcodes were disabled in the Bitcoin scripting system due to discovery o
 <!-- The technical specification should describe the syntax and semantics of any new feature. The specification should be detailed enough to allow competing, interoperable implementations for any of the current Bitcoin platforms -->
 <!-- OP_CAT, OP_SPLIT, OP_BIN2NUM and OP_NUM2BIN TEXT COPIED FROM: https://github.com/schancel/spec/blob/5e9319028e85321c24eac9fe4b47e60c42b315bc/may-2018-reenabled-opcodes.md -->
 
+
+The opcodes that are to be added are:
+
+|Word       |OpCode |Hex |Input         |Output  | Description                                                      |
+|-----------|-------|----|--------------|--------|------------------------------------------------------------------|
+|OP_CAT         |126    |0x7e|x1 x2         |out     |Concatenates two byte arrays                                      |
+|OP_SPLIT   |127    |0x7f|x n           |x1 x2   |Split byte array *x* at position *n*                              |
+|OP_NUM2BIN |128    |0x80|a b           |out     |convert numeric *a* into byte array of length *b*                 |
+|OP_BIN2NUM    |129    |0x81|x             |out     |convert byte array *x* into numeric                               |
+|OP_CHECKDATASIG |    ||             |     |                               |
+|OP_CHECKDATASIGVERIFY |    ||             |     |                   |
+
 ## OP_CAT
 `OP_CAT` takes two byte arrays from the stack, concates and pushes the result back to the stack.
 
