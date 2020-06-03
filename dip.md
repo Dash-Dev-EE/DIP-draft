@@ -32,10 +32,10 @@ One use case is in trustless smart card payment system where the use of these ne
 |----------------------|-------|----|--------------|--------|-------------------------------------------------------|
 |OP_CAT                |126    |0x7e|x1 x2         |out     |Concatenates two byte arrays                           |
 |OP_SPLIT              |127    |0x7f|x n           |x1 x2   |Split byte array *x* at position *n*                   |
-|OP_NUM2BIN            |128    |0x80|a b           |out     |convert numeric *a* into byte array of length *b*      |
-|OP_BIN2NUM            |129    |0x81|x             |out     |convert byte array *x* into numeric                    |
-|OP_CHECKDATASIG       |       |    |              |        |                                                       |
-|OP_CHECKDATASIGVERIFY |       |    |              |        |                                                       |
+|OP_NUM2BIN            |128    |0x80|a b           |out     |Convert numeric *a* into byte array of length *b*      |
+|OP_BIN2NUM            |129    |0x81|x             |out     |Convert byte array *x* into numeric                    |
+|OP_CHECKDATASIG       |186    |0xba|sig msg pubKey|out     |Checks if *sig* is valid, output to the stack          |
+|OP_CHECKDATASIGVERIFY |187    |0xbb|sig msg pubKey|        |Checks if *sig* is valid, will cause the script to fail|
 
 ## OP_CAT
 `OP_CAT` takes two byte arrays from the stack, concates and pushes the result back to the stack.
