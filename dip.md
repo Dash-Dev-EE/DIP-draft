@@ -100,10 +100,10 @@ The operator must fail if:
 `OP_CHECKDATASIG` and `OP_CHECKDATASIGVERIFY` check whether a signature is valid with respect to a message and a public key. `OP_CHECKDATASIG` permits data to be imported into a script, and have its validity checked against some signing authority such as an "Oracle".
 
 The operator must fail if:
-* Stack is not well formed. To be well formed, the stack must contain at least three elements [sig, msg, pubKey] in this order where ''pubKey'' is the top element and
-** ''pubKey'' must be a validly encoded public key
-** ''msg'' can be any string
-** ''sig'' must follow the strict DER encoding and the S-value of ''sig'' must be at most the curve order divided by 2
+* Stack is not well formed. To be well formed, the stack must contain at least three elements [`sig`, `msg`, `pubKey`] in this order where `pubKey` is the top element and
+** `pubKey` must be a validly encoded public key
+** `msg` can be any string
+** `sig` must follow the strict DER encoding and the S-value of `sig` must be at most the curve order divided by 2
 
 
 `OP_CHECKDATASIGVERIFY` is equivalent to `OP_CHECKDATASIG` followed by `OP_VERIFY`. It leaves nothing on the stack, and will cause the script to fail immediately if the signature check does not pass.
