@@ -14,7 +14,7 @@ License: MIT License
 # Abstract
 <!-- A short (~200 word) description of the technical issue being addressed -->
 
-This BIP describes reactivation of disabled opcodes (OP_CAT) and activation of new opcodes (OP_SPLIT, OP_BIN2NUM, OP_NUM2BIN, OP_CHECKDATASIG and OP_CHECKDATASIGVERIFY) to expand the use of scripting language and enable the creation of trustless smart card payment system.
+This BIP describes reactivation of disabled opcodes (`OP_CAT`) and activation of new opcodes (`OP_SPLIT`, `OP_BIN2NUM`, `OP_NUM2BIN`, `OP_CHECKDATASIG` and `OP_CHECKDATASIGVERIFY`) to expand the use of scripting language and enable the creation of trustless smart card payment system.
 
 
 # Motivation
@@ -28,77 +28,76 @@ Several opcodes were disabled in the Bitcoin script language due to discovery of
 <!-- OP_CAT, OP_SPLIT, OP_BIN2NUM and OP_NUM2BIN TEXT COPIED FROM: https://github.com/schancel/spec/blob/5e9319028e85321c24eac9fe4b47e60c42b315bc/may-2018-reenabled-opcodes.md -->
 
 ## OP_CAT
-OP_CAT takes two byte arrays from the stack, concates and pushes the result back to the stack.
+`OP_CAT` takes two byte arrays from the stack, concates and pushes the result back to the stack.
 
 
-x1 x2 OP_CAT → out
+`x1 x2 OP_CAT → out`
 
 
 Example:
-* 0x11 0x2233 OP_CAT → 0x112233
+* `0x11 0x2233 OP_CAT → 0x112233`
 
 The operator must fail if:
-* len(''out'') > MAX_SCRIPT_ELEMENT_SIZE
+* len(out) > MAX_SCRIPT_ELEMENT_SIZE
 
 ## OP_SPLIT
-OP_SPLIT inverse of OP_CAT and is a replacement operation for disabled opcode OP_SUBSTR, OP_LEFT and OP_RIGHT.
+`OP_SPLIT` inverse of `OP_CAT` and is a replacement operation for disabled opcode `OP_SUBSTR`, `OP_LEFT` and `OP_RIGHT`.
+`OP_SPLIT` takes a byte array, splits it at the position `n` (a number) and returns
 
-OP_SPLIT takes a byte array, splits it at the position ''n'' (a number) and returns 
-
-x n OP_SPLIT → x1 x2
+`x n OP_SPLIT → x1 x2`
 
 
 Examples:
-* 0x001122 0 OP_SPLIT → OP_0 0x001122
-* 0x001122 1 OP_SPLIT → 0x00 0x1122
-* 0x001122 2 OP_SPLIT → 0x0011 0x22
-* 0x001122 3 OP_SPLIT → 0x001122 OP_0
+* `0x001122 0 OP_SPLIT → OP_0 0x001122`
+* `0x001122 1 OP_SPLIT → 0x00 0x1122`
+* `0x001122 2 OP_SPLIT → 0x0011 0x22`
+* `0x001122 3 OP_SPLIT → 0x001122 OP_0`
 
 
-''x'' is split at position ''n'', where ''n'' is the number of bytes from the beginning
-''x1'' will be the first ''n'' bytes of ''x'' and ''x2'' will be the remaining bytes
-if ''n'' == 0, then x1 is the empty array and ''x2'' == ''x''
-if ''n'' == len(''x'') then ''x1'' == ''x'' and ''x2'' is the empty array.
-if ''n'' > len(''x''), then the operator must fail.
+`x` is split at position `n`, where `n` is the number of bytes from the beginning
+`x1` will be the first `n` bytes of `x` and `x2` will be the remaining bytes
+if `n == 0`, then `x1` is the empty array and `x2 == x`
+if `n == len(x)` then `x1 == x` and `x2` is the empty array.
+if `n > len(x)`, then the operator must fail.
 
 The operator must fail if:
-* !isnum(''n''). Fail if ''n'' is not a number.
-* ''n'' < 0. Fail if ''n'' is negative.
-* ''n'' > len(''x''). Fail if ''n'' is too high.
+* `!isnum(''n'')`. Fail if `n` is not a number.
+* `n < 0`. Fail if `n` is negative.
+* `n > len(x)`. Fail if `n` is too high.
 
 ## OP_NUM2BIN
-OP_NUM2BIN converts numeric value ''n'' to a byte array of length ''m''
+`OP_NUM2BIN` converts numeric value `n` to a byte array of length `m`.
 
-n m OP_NUM2BIN → x
+`n m OP_NUM2BIN → x`
 
 Examples:
-* 0x02 4 OP_NUM2BIN → 0x00000002
-* 0x85 4 OP_NUM2BIN → 0x80000005
+* `0x02 4 OP_NUM2BIN → 0x00000002`
+* `0x85 4 OP_NUM2BIN → 0x80000005`
 
 
 The operator must fail if:
-* ''n'' or ''m'' are not valid numeric values.
-* ''m'' < len(''n''). ''n'' is a valid numeric value, therefore it must already be in minimal representation, so it cannot fit into a byte array which is smaller than the length of ''n''.
-* ''m'' > MAX_SCRIPT_ELEMENT_SIZE. The result would be too large.
+* `n` or `m` are not valid numeric values.
+* `m < len(n)`. `n` is a valid numeric value, therefore it must already be in minimal representation, so it cannot fit into a byte array which is smaller than the length of `n`.
+* `m` > `MAX_SCRIPT_ELEMENT_SIZE`. The result would be too large.
 
 
 ## OP_BIN2NUM
-OP_BIN2NUM converts byte array value ''x'' into a numeric value
+`OP_BIN2NUM` converts byte array value `x` into a numeric value.
 
-x1 OP_BIN2NUM → n
+`x1 OP_BIN2NUM → n`
 
-if ''x1'' is any form of zero, including negative zero, then OP_0 must be the result
+if `x1` is any form of zero, including negative zero, then `OP_0` must be the result
 
 Examples:
-* 0x0000000002 OP_BIN2NUM → 0x02
-* 0x800005 OP_BIN2NUM → 0x85
+* `0x0000000002 OP_BIN2NUM → 0x02`
+* `0x800005 OP_BIN2NUM → 0x85`
 
 The operator must fail if:
 * the numeric value is out of the range of acceptable numeric values
 
 
 ## OP_CHECKDATASIG and OP_CHECKDATASIGVERIFY
-OP_CHECKDATASIG and OP_CHECKDATASIGVERIFY check whether a signature is valid with respect to a message and a public key. OP_CHECKDATASIG permits data to be imported into a script, and have its validity checked against some signing authority such as an "Oracle".
+`OP_CHECKDATASIG` and `OP_CHECKDATASIGVERIFY` check whether a signature is valid with respect to a message and a public key. `OP_CHECKDATASIG` permits data to be imported into a script, and have its validity checked against some signing authority such as an "Oracle".
 
 The operator must fail if:
 * Stack is not well formed. To be well formed, the stack must contain at least three elements [sig, msg, pubKey] in this order where ''pubKey'' is the top element and
@@ -107,7 +106,7 @@ The operator must fail if:
 ** ''sig'' must follow the strict DER encoding and the S-value of ''sig'' must be at most the curve order divided by 2
 
 
-OP_CHECKDATASIGVERIFY is equivalent to OP_CHECKDATASIG followed by OP_VERIFY. It leaves nothing on the stack, and will cause the script to fail immediately if the signature check does not pass.
+`OP_CHECKDATASIGVERIFY` is equivalent to `OP_CHECKDATASIG` followed by `OP_VERIFY`. It leaves nothing on the stack, and will cause the script to fail immediately if the signature check does not pass.
 
 # Rationale
 <!-- The rationale fleshes out the specification by describing what motivated the design and why particular design decisions were made. It should describe alternate designs that were considered and related work. The rationale should provide evidence of consensus within the community and discuss important objections or concerns raised during discussion -->
