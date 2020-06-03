@@ -38,7 +38,7 @@ Example:
 * `0x11 0x2233 OP_CAT → 0x112233`
 
 The operator must fail if:
-* len(out) > MAX_SCRIPT_ELEMENT_SIZE
+* `len(out) > MAX_SCRIPT_ELEMENT_SIZE`
 
 ## OP_SPLIT
 `OP_SPLIT` inverse of `OP_CAT` and is a replacement operation for disabled opcode `OP_SUBSTR`, `OP_LEFT` and `OP_RIGHT`.
