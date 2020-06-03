@@ -14,13 +14,13 @@ License: MIT License
 # Abstract
 <!-- A short (~200 word) description of the technical issue being addressed -->
 
-This BIP describes reactivation of disabled opcodes (`OP_CAT`) and activation of new opcodes (`OP_SPLIT`, `OP_BIN2NUM`, `OP_NUM2BIN`, `OP_CHECKDATASIG` and `OP_CHECKDATASIGVERIFY`) to expand the use of scripting language and enable the creation of trustless smart card payment system.
+This BIP describes reactivation of disabled opcodes (`OP_CAT`) and activation of new opcodes (`OP_SPLIT`, `OP_BIN2NUM`, `OP_NUM2BIN`, `OP_CHECKDATASIG` and `OP_CHECKDATASIGVERIFY`) to expand the use of scripting system and enable the creation of trustless smart card payment system.
 
 
 # Motivation
 <!-- The motivation is critical for BIPs that want to change the Bitcoin protocol. It should clearly explain why the existing protocol is inadequate to address the problem that the BIP solves -->
 
-Several opcodes were disabled in the Bitcoin script language due to discovery of series of bugs in early days of Bitcoin (2010-2011). The functionality of these opcodes has been re-examined by Bitcoin Cash developers and some of the disabled opcodes has been enabled, as well as re-designed ones to replace few original ones. In addition, they have implemented few completely new opcodes which will further expand the use of Bitcoin script language. One of the use is the development of trustless smart card payment system which would be also important for Dash as no such solution exists at the moment.
+Several opcodes were disabled in the Bitcoin scripting system due to discovery of series of bugs in early days of Bitcoin (2010-2011). The functionality of these opcodes has been re-examined by Bitcoin Cash developers and some of the disabled opcodes has been enabled, as well as re-designed ones to replace few original ones. In addition, they have implemented few completely new opcodes which will further expand the use of Bitcoin script language. One of the use is the development of trustless smart card payment system which would be also important for Dash as no such solution exists at the moment.
 
 
 # Specification
