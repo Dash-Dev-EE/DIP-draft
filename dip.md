@@ -14,7 +14,7 @@ License: MIT License
 # Abstract
 <!-- A short (~200 word) description of the technical issue being addressed -->
 
-This BIP describes reactivation of disabled opcodes (`OP_CAT`) and activation of new opcodes (`OP_SPLIT`, `OP_BIN2NUM`, `OP_NUM2BIN`, `OP_CHECKDATASIG` and `OP_CHECKDATASIGVERIFY`) to expand the use of Dash scripting system for transactions and enable the creation of trustless smart card payment system.
+This DIP describes reactivation of disabled opcodes (`OP_CAT`) and activation of new opcodes (`OP_SPLIT`, `OP_BIN2NUM`, `OP_NUM2BIN`, `OP_CHECKDATASIG` and `OP_CHECKDATASIGVERIFY`) to expand the use of Dash scripting system for transactions and enable the creation of trustless smart card payment system.
 
 
 # Motivation
