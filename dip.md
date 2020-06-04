@@ -1,12 +1,11 @@
 <pre>
-DIP: ?
+DIP: 0011
 Layer: Consensus (hard fork)
 Title: Activating old and implementing new opcodes
 Author: Andreas Halman, Mart Mangus
 Comments-Summary: No comments yet.
 Comments-URI: https://github.com/dashpay/dips/wiki/Comments:DIP-?
 Status: Draft
-Type: Standards Track
 Created: 2020-06-01
 License: MIT License
 </pre>
