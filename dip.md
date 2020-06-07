@@ -107,6 +107,9 @@ The operator must fail if:
 ## OP_CHECKDATASIG and OP_CHECKDATASIGVERIFY
 `OP_CHECKDATASIG` and `OP_CHECKDATASIGVERIFY` check whether a signature is valid with respect to a message and a public key. 
 
+`sig msg pubKey OP_CHECKDATASIG → out`
+`sig msg pubKey OP_CHECKDATASIGVERIFY` (script fails on *false*)
+
 The operator must fail if stack is not well formed. To be well formed, the stack must contain at least three elements
 [`sig`, `msg`, `pubKey`]
 in this order where `pubKey` is the top element and
