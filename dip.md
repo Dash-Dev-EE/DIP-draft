@@ -105,13 +105,14 @@ The operator must fail if:
 * the numeric value is out of the range of acceptable numeric values
 
 ## OP_CHECKDATASIG and OP_CHECKDATASIGVERIFY
-`OP_CHECKDATASIG` and `OP_CHECKDATASIGVERIFY` check whether a signature is valid with respect to a message and a public key. `OP_CHECKDATASIG` permits data to be imported into a script, and have its validity checked against signing authorities outside the blockchain.
+`OP_CHECKDATASIG` and `OP_CHECKDATASIGVERIFY` check whether a signature is valid with respect to a message and a public key. 
 
-The operator must fail if:
-* Stack is not well formed. To be well formed, the stack must contain at least three elements [`sig`, `msg`, `pubKey`] in this order where `pubKey` is the top element and
-** `pubKey` must be a validly encoded public key
-** `msg` can be any string
-** `sig` must follow the strict DER encoding and the S-value of `sig` must be at most the curve order divided by 2
+The operator must fail if stack is not well formed. To be well formed, the stack must contain at least three elements
+[`sig`, `msg`, `pubKey`]
+in this order where `pubKey` is the top element and
+* `pubKey` must be a validly encoded public key
+* `msg` can be any string
+* `sig` must follow the strict DER encoding and the S-value of `sig` must be at most the curve order divided by 2
 
 If the stack is well formed, then `OP_CHECKDATASIG` pops the top three elements [`sig`, `msg`, `pubKey`] from the stack and pushes true onto the stack if `sig` is valid with respect to the raw single-SHA256 hash of `msg` and `pubKey` using the secp256k1 elliptic curve. Otherwise, it pops three elements and pushes false onto the stack in the case that `sig` is the empty string and fails in all other cases.
 
