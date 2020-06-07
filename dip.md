@@ -117,7 +117,7 @@ The operator must fail if:
 in this order where `pubKey` is the top element and
   * `pubKey` must be a validly encoded public key
   * `msg` can be any string
-  * `sig` must follow the strict DER encoding and the S-value of `sig` must be at most the curve order divided by 2
+  * `sig` must follow the strict DER encoding and the S-value of `sig` must be at most the curve order divided by 2.
 
  ## OP_CHECKDATASIGVERIFY
 
