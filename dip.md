@@ -62,11 +62,12 @@ Examples:
 * `0x001122 3 OP_SPLIT → 0x001122 OP_0`
 
 
-`x` is split at position `n`, where `n` is the number of bytes from the beginning
-`x1` will be the first `n` bytes of `x` and `x2` will be the remaining bytes
-if `n == 0`, then `x1` is the empty array and `x2 == x`
-if `n == len(x)` then `x1 == x` and `x2` is the empty array.
-if `n > len(x)`, then the operator must fail.
+Notes:
+* `x` is split at position `n`, where `n` is the number of bytes from the beginning
+* `x1` will be the first `n` bytes of `x` and `x2` will be the remaining bytes 
+* if `n == 0`, then `x1` is the empty array and `x2 == x`
+* if `n == len(x)` then `x1 == x` and `x2` is the empty array.
+* if `n > len(x)`, then the operator must fail.
 
 The operator must fail if:
 * `!isnum(''n'')`. Fail if `n` is not a number.
