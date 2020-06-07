@@ -45,10 +45,10 @@ Example:
 * `0x11 0x2233 OP_CAT → 0x112233`
 
 The operator must fail if:
-* `len(out) > MAX_SCRIPT_ELEMENT_SIZE`
+* `len(out) > MAX_SCRIPT_ELEMENT_SIZE`.
 
 ## OP_SPLIT
-`OP_SPLIT` inverse of `OP_CAT` and is a replacement operation for disabled opcode `OP_SUBSTR`, `OP_LEFT` and `OP_RIGHT`.
+`OP_SPLIT` inverse of `OP_CAT` and is a replacement operation for disabled opcodes `OP_SUBSTR`, `OP_LEFT` and `OP_RIGHT`.
 
 `OP_SPLIT` takes a byte array, splits it at the position `n` (a number) and returns
 
@@ -95,14 +95,14 @@ The operator must fail if:
 
 `x1 OP_BIN2NUM → n`
 
-if `x1` is any form of zero, including negative zero, then `OP_0` must be the result
+if `x1` is any form of zero, including negative zero, then `OP_0` must be the result.
 
 Examples:
 * `0x0000000002 OP_BIN2NUM → 0x02`
 * `0x800005 OP_BIN2NUM → 0x85`
 
 The operator must fail if:
-* the numeric value is out of the range of acceptable numeric values
+* the numeric value is out of the range of acceptable numeric values.
 
 ## OP_CHECKDATASIG
 `OP_CHECKDATASIG` checks whether a signature is valid with respect to a message and a public key. It allows Script to validate arbitrary messages from outside the blockchain.
