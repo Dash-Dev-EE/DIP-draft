@@ -104,12 +104,12 @@ Examples:
 The operator must fail if:
 * the numeric value is out of the range of acceptable numeric values
 
-## OP_CHECKDATASIG and OP_CHECKDATASIGVERIFY
-`OP_CHECKDATASIG` and `OP_CHECKDATASIGVERIFY` check whether a signature is valid with respect to a message and a public key. 
+## OP_CHECKDATASIG
+`OP_CHECKDATASIG` checks whether a signature is valid with respect to a message and a public key. 
 
 `sig msg pubKey OP_CHECKDATASIG → out`
 
-`sig msg pubKey OP_CHECKDATASIGVERIFY` (script fails on *false*)
+If the stack is well formed, then `OP_CHECKDATASIG` pops the top three elements [`sig`, `msg`, `pubKey`] from the stack and pushes true onto the stack if `sig` is valid with respect to the raw single-SHA256 hash of `msg` and `pubKey` using the secp256k1 elliptic curve. Otherwise, it pops three elements and pushes false onto the stack in the case that `sig` is the empty string and fails in all other cases.
 
 The operator must fail if:
 * Stack is not well formed. To be well formed, the stack must contain at least three elements
@@ -119,7 +119,7 @@ in this order where `pubKey` is the top element and
   * `msg` can be any string
   * `sig` must follow the strict DER encoding and the S-value of `sig` must be at most the curve order divided by 2
 
-If the stack is well formed, then `OP_CHECKDATASIG` pops the top three elements [`sig`, `msg`, `pubKey`] from the stack and pushes true onto the stack if `sig` is valid with respect to the raw single-SHA256 hash of `msg` and `pubKey` using the secp256k1 elliptic curve. Otherwise, it pops three elements and pushes false onto the stack in the case that `sig` is the empty string and fails in all other cases.
+ ## OP_CHECKDATASIGVERIFY
 
 `OP_CHECKDATASIGVERIFY` is equivalent to `OP_CHECKDATASIG` followed by `OP_VERIFY`. It leaves nothing on the stack, and will cause the script to fail immediately if the signature check does not pass.
 
