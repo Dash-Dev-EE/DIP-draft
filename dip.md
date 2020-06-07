@@ -105,7 +105,7 @@ The operator must fail if:
 * the numeric value is out of the range of acceptable numeric values
 
 ## OP_CHECKDATASIG and OP_CHECKDATASIGVERIFY
-`OP_CHECKDATASIG` and `OP_CHECKDATASIGVERIFY` check whether a signature is valid with respect to a message and a public key. `OP_CHECKDATASIG` permits data to be imported into a script, and have its validity checked against some signing authority such as an "Oracle".
+`OP_CHECKDATASIG` and `OP_CHECKDATASIGVERIFY` check whether a signature is valid with respect to a message and a public key. `OP_CHECKDATASIG` permits data to be imported into a script, and have its validity checked against signing authorities outside the blockchain.
 
 The operator must fail if:
 * Stack is not well formed. To be well formed, the stack must contain at least three elements [`sig`, `msg`, `pubKey`] in this order where `pubKey` is the top element and
