@@ -117,11 +117,6 @@ If the stack is well formed, then `OP_CHECKDATASIG` pops the top three elements 
 
 `OP_CHECKDATASIGVERIFY` is equivalent to `OP_CHECKDATASIG` followed by `OP_VERIFY`. It leaves nothing on the stack, and will cause the script to fail immediately if the signature check does not pass.
 
-# Rationale
-<!-- The rationale fleshes out the specification by describing what motivated the design and why particular design decisions were made. It should describe alternate designs that were considered and related work. The rationale should provide evidence of consensus within the community and discuss important objections or concerns raised during discussion -->
-
-TODO: Here a little explination why on card UTXO management is bad and these opcodes help us out.
-
 # Compatibility
 <!-- All BIPs that introduce backwards incompatibilities must include a section describing these incompatibilities and their severity. The BIP must explain how the author proposes to deal with these incompatibilities -->
 
