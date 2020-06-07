@@ -10,21 +10,15 @@ License: MIT License
 </pre>
 
 # Abstract
-<!-- A short (~200 word) description of the technical issue being addressed -->
-
 This DIP describes reactivation of a disabled opcode (`OP_CAT`) and activation of new opcodes (`OP_SPLIT`, `OP_BIN2NUM`, `OP_NUM2BIN`, `OP_CHECKDATASIG` and `OP_CHECKDATASIGVERIFY`) to expand the use of Dash scripting system for transactions and enable the creation of user friendly trustless smart card payment system.
 
 
 # Motivation
-<!-- The motivation is critical for BIPs that want to change the Bitcoin protocol. It should clearly explain why the existing protocol is inadequate to address the problem that the BIP solves -->
+Several opcodes were disabled in the Bitcoin scripting system due to discovery of series of bugs in early days of Bitcoin (2010-2011). The functionality of these opcodes has been re-examined by Bitcoin Cash developers few years ago and many of the disabled opcodes has been enabled, and few of them were re-designed to replace the original ones. In addition, they have implemented couple of completely new opcodes which will further expand the use of Bitcoin scripting system and enables to build new solutions.
 
-Several opcodes were disabled in the Bitcoin scripting system due to discovery of series of bugs in early days of Bitcoin (2010-2011). The functionality of these opcodes has been re-examined by Bitcoin Cash developers and some of the disabled opcodes has been enabled, as well as re-designed ones to replace few original ones. In addition, they have implemented couple of completely new opcodes which will further expand the use of Bitcoin scripting system.
-
-One use case is in trustless smart card payment system where the use of these new opcodes takes away the need for on card UTXO (unspent transaction output) management and makes these cards more usable and user friendly.
+One use case is a trustless smart card payment system where the use of these new opcodes removes the need for on card UTXO (unspent transaction output) management and results in ...
 
 # Specification
-<!-- The technical specification should describe the syntax and semantics of any new feature. The specification should be detailed enough to allow competing, interoperable implementations for any of the current Bitcoin platforms -->
-
 |Word                  |OpCode |Hex |Input |Output  | Description                                           |
 |----------------------|-------|----|------|--------|-------------------------------------------------------|
 |OP_CAT                |126    |0x7e|x1 x2 |out     |Concatenates two byte arrays                           |
@@ -48,7 +42,7 @@ The operator must fail if:
 * `len(out) > MAX_SCRIPT_ELEMENT_SIZE`.
 
 ## OP_SPLIT
-`OP_SPLIT` inverse of `OP_CAT` and is a replacement operation for disabled opcodes `OP_SUBSTR`, `OP_LEFT` and `OP_RIGHT`.
+`OP_SPLIT` is inverse of `OP_CAT` and a replacement operation for disabled opcodes `OP_SUBSTR`, `OP_LEFT` and `OP_RIGHT`.
 
 `OP_SPLIT` takes a byte array, splits it at the position `n` (a number) and returns two byte arrays.
 
@@ -91,6 +85,7 @@ The operator must fail if:
 * `m < len(n)`. `n` is a valid numeric value, therefore it must already be in minimal representation, so it cannot fit into a byte array which is smaller than the length of `n`.
 * `m` > `MAX_SCRIPT_ELEMENT_SIZE`. The result would be too large.
 
+
 ## OP_BIN2NUM
 `OP_BIN2NUM` converts byte array value `x` into a numeric value.
 
@@ -104,6 +99,7 @@ Examples:
 
 The operator must fail if:
 * the numeric value is out of the range of acceptable numeric values.
+
 
 ## OP_CHECKDATASIG
 `OP_CHECKDATASIG` checks whether a signature is valid with respect to a message and a public key. It allows Script to validate arbitrary messages from outside the blockchain.
@@ -120,18 +116,15 @@ in this order where `pubKey` is the top element and
   * `msg` can be any string
   * `sig` must follow the strict DER encoding and the S-value of `sig` must be at most the curve order divided by 2.
 
- ## OP_CHECKDATASIGVERIFY
 
+## OP_CHECKDATASIGVERIFY
 `OP_CHECKDATASIGVERIFY` is equivalent to `OP_CHECKDATASIG` followed by `OP_VERIFY`. It leaves nothing on the stack, and will cause the script to fail immediately if the signature check does not pass.
 
-# Compatibility
-<!-- All BIPs that introduce backwards incompatibilities must include a section describing these incompatibilities and their severity. The BIP must explain how the author proposes to deal with these incompatibilities -->
 
+# Compatibility
 This change will be a hard-fork to the protocol and older software has to be updated to continue to operate. 
 
 # References
-<!-- The reference implementation must be completed before any BIP is given status "Final", but it need not be completed before the BIP is accepted. It is better to finish the specification and rationale first and reach consensus on it before writing code. The final implementation must include test code and documentation appropriate for the Bitcoin protocol -->
-
 * Bitcoin Cash specification of restored disabled opcodes: https://github.com/bitcoincashorg/bitcoincash.org/blob/master/spec/may-2018-reenabled-opcodes.md
 * Bitcoin Cash specification of OP_CHECKDATASIG and OP_CHECKDATASIGVERIFY: https://github.com/bitcoincashorg/bitcoincash.org/blob/master/spec/op_checkdatasig.md
 * Bitcoin Cash OP_CHECKDATASIG and OP_CHECKDATASIGVERIFY implementation: https://reviews.bitcoinabc.org/D1621 https://reviews.bitcoinabc.org/D1646 https://reviews.bitcoinabc.org/D1653 https://reviews.bitcoinabc.org/D1666
@@ -141,5 +134,4 @@ This change will be a hard-fork to the protocol and older software has to be upd
 * Bitcoin Cash OP_NUM2BIN implementation: https://reviews.bitcoinabc.org/D1103
 
 # Copyright
-<!-- The BIP must be explicitly licensed under acceptable copyright terms -->
 This document is licensed under the [MIT License](https://opensource.org/licenses/MIT).
