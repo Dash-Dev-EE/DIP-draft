@@ -105,7 +105,7 @@ The operator must fail if:
 * the numeric value is out of the range of acceptable numeric values
 
 ## OP_CHECKDATASIG
-`OP_CHECKDATASIG` checks whether a signature is valid with respect to a message and a public key. 
+`OP_CHECKDATASIG` checks whether a signature is valid with respect to a message and a public key. It allows Script to validate arbitrary messages from outside the blockchain.
 
 `sig msg pubKey OP_CHECKDATASIG → out`
 
