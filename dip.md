@@ -16,7 +16,7 @@ This DIP describes reactivation of a disabled opcode (`OP_CAT`) and activation o
 # Motivation
 Several opcodes were disabled in the Bitcoin scripting system due to discovery of series of bugs in early days of Bitcoin (2010-2011). The functionality of these opcodes has been re-examined by Bitcoin Cash developers few years ago and many of the disabled opcodes has been enabled, and few of them were re-designed to replace the original ones. In addition, they have implemented couple of completely new opcodes which will further expand the use of Bitcoin scripting system and enables to build new solutions.
 
-One use case is a trustless smart card payment system where the use of these new opcodes removes the need for on card UTXO (unspent transaction output) management and results in ...
+One use case is a trustless smart card payment system where the use of these new opcodes removes the need for on card UTXO (unspent transaction output) management and results in more reliable and faster system.
 
 # Specification
 |Word                  |OpCode |Hex |Input |Output  | Description                                           |
