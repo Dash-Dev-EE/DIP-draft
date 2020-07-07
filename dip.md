@@ -25,8 +25,13 @@ One use case is a trustless smart card payment system where the use of these new
 |OP_SPLIT              |127    |0x7f|x n   |x1 x2   |Split byte array *x* at position *n*                   |
 |OP_NUM2BIN            |128    |0x80|a b   |out     |Convert numeric *a* into byte array of length *b*      |
 |OP_BIN2NUM            |129    |0x81|x     |out     |Convert byte array *x* into numeric                    |
-|OP_CHECKDATASIG       |186    |0xba|sig&nbsp;msg&nbsp;pk|out     |If signature *sig* is valid, output to the stack          |
-|OP_CHECKDATASIGVERIFY |187    |0xbb|sig&nbsp;msg&nbsp;pk|        |If signature *sig* is valid, false will cause the script to fail|
+|OP_AND                |132    |0x84|x1 x2 |out     |Boolean *AND* between each bit of the inputs           |
+|OP_OR                 |133    |0x85|x1 x2 |out     |Boolean *OR* between each bit of the inputs            |
+|OP_XOR                |134    |0x86|x1 x2 |out     |Boolean *EXCLUSIVE OR* between each bit of the inputs  |
+|OP_DIV                |150    |0x96|a b   |out     |*a* is divided by *b*                                  |
+|OP_MOD                |151    |0x97|a b   |out     |return the remainder after *a* is divided by *b*       |
+|OP_CHECKDATASIG       |186    |0xba|sig&nbsp;msg&nbsp;pk|out     |If signature *sig* is valid, output to the stack|
+|OP_CHECKDATASIGVERIFY |187    |0xbb|sig&nbsp;msg&nbsp;pk|-       |If signature *sig* is valid, false will cause the script to fail|
 
 ## OP_CAT
 `OP_CAT` takes two byte arrays from the stack, concates and pushes the result back to the stack.
