@@ -33,11 +33,13 @@ One use case is a trustless smart card payment system where the use of these new
 |OP_CHECKDATASIGVERIFY |187    |0xbb|sig&nbsp;msg&nbsp;pk|-       |If signature *sig* is valid, false will cause the script to fail|
 
 ## OP_CAT
+
+    Opcode (decimal): 126
+    Opcode (hex): 0x7e
+
 `OP_CAT` takes two byte arrays from the stack, concates and pushes the result back to the stack.
 
-
-`x1 x2 OP_CAT → out`
-
+	x1 x2 OP_CAT → out
 
 Example:
 * `0x11 0x2233 OP_CAT → 0x112233`
@@ -46,11 +48,15 @@ The operator must fail if:
 * `len(out) > MAX_SCRIPT_ELEMENT_SIZE`.
 
 ## OP_SPLIT
+
+    Opcode (decimal): 127
+    Opcode (hex): 0x7f
+    
 `OP_SPLIT` is inverse of `OP_CAT` and a replacement operation for disabled opcodes `OP_SUBSTR`, `OP_LEFT` and `OP_RIGHT`.
 
 `OP_SPLIT` takes a byte array, splits it at the position `n` (a number) and returns two byte arrays.
 
-`x n OP_SPLIT → x1 x2`
+	x n OP_SPLIT → x1 x2
 
 
 Examples:
@@ -74,10 +80,13 @@ The operator must fail if:
 
 
 ## OP_NUM2BIN
+
+    Opcode (decimal): 128
+    Opcode (hex): 0x80
+
 `OP_NUM2BIN` converts numeric value `n` to a byte array of length `m`.
 
-`n m OP_NUM2BIN → x`
-
+	n m OP_NUM2BIN → x
 
 Examples:
 * `0x02 4 OP_NUM2BIN → 0x00000002`
@@ -91,9 +100,13 @@ The operator must fail if:
 
 
 ## OP_BIN2NUM
+
+    Opcode (decimal): 129
+    Opcode (hex): 0x81
+
 `OP_BIN2NUM` converts byte array value `x` into a numeric value.
 
-`x1 OP_BIN2NUM → n`
+	x1 OP_BIN2NUM → n
 
 if `x1` is any form of zero, including negative zero, then `OP_0` must be the result.
 
@@ -104,11 +117,132 @@ Examples:
 The operator must fail if:
 * the numeric value is out of the range of acceptable numeric values.
 
+## OP_AND
+
+    Opcode (decimal): 132
+    Opcode (hex): 0x84
+
+Boolean *and* between each bit in the operands.
+
+	x1 x2 OP_AND -> out
+
+Notes:
+* where `len(x1) == 0` and `len(x2) == 0` the output will be an empty array.
+
+The operator must fail if:
+1. `len(x1) != len(x2)`. The two operands must be the same size.
+
+Impact of successful execution:
+* stack memory use reduced by `len(x1)`
+* number of elements on stack is reduced by one
+
+Unit tests:
+
+1. `x1 x2 OP_AND -> failure`, where `len(x1) != len(x2)`. The two operands must be the same size.
+2. `x1 x2 OP_AND -> x1 & x2`. Check valid results.
+
+## OP_OR
+
+    Opcode (decimal): 133
+    Opcode (hex): 0x85
+
+Boolean *or* between each bit in the operands.
+
+	x1 x2 OP_OR -> out
+	
+The operator must fail if:
+1. `len(x1) != len(x2)`. The two operands must be the same size.
+
+Impact of successful execution:
+* stack memory use reduced by `len(x1)`
+* number of elements on stack is reduced by one
+
+Unit tests:
+1. `x1 x2 OP_OR -> failure`, where `len(x1) != len(x2)`. The two operands must be the same size.
+2. `x1 x2 OP_OR -> x1 | x2`. Check valid results.
+
+## OP_XOR
+
+    Opcode (decimal): 134
+    Opcode (hex): 0x86
+
+Boolean *xor* between each bit in the operands.
+
+	x1 x2 OP_XOR -> out
+	
+The operator must fail if:
+1. `len(x1) != len(x2)`. The two operands must be the same size.
+
+Impact of successful execution:
+* stack memory use reduced by `len(x1)`
+* number of elements on stack is reduced by one
+
+Unit tests:
+1. `x1 x2 OP_XOR -> failure`, where `len(x1) != len(x2)`. The two operands must be the same size.
+2. `x1 x2 OP_XOR -> x1 xor x2`. Check valid results.
+
+
+### OP_DIV
+
+    Opcode (decimal): 150
+    Opcode (hex): 0x96
+    
+Return the integer quotient of `a` and `b`.  If the result would be a non-integer it is rounded *towards* zero.
+
+    a b OP_DIV -> out
+    
+    where a and b are interpreted as numeric values
+    
+The operator must fail if:
+1. `!isnum(a) || !isnum(b)`. Fail if either operand is not a numeric value.
+1. `b == 0`. Fail if `b` is equal to any type of zero.
+
+Impact of successful execution:
+* stack memory use reduced
+* number of elements on stack is reduced by one
+
+Unit tests:
+1. `a b OP_DIV -> failure` where `!isnum(a)` or `!isnum(b)`. Both operands must be numeric values
+2. `a 0 OP_DIV -> failure`. Division by positive zero (all sizes), negative zero (all sizes), `OP_0` 
+3. `27 7 OP_DIV -> 3`, `27 -7 OP_DIV -> -3`, `-27 7 OP_DIV -> -3`, `-27 -7 OP_DIV -> 3`. Check negative operands.
+  *Pay attention to sign*.
+4. check valid results for operands of different lengths `0..4`
+    
+### OP_MOD
+
+    Opcode (decimal): 151
+    Opcode (hex): 0x97
+
+Returns the remainder after dividing a by b.  The output will be represented using the least number of bytes required. 
+
+	a b OP_MOD -> out
+	
+	where a and b are interpreted as numeric values
+	
+The operator must fail if:
+1. `!isnum(a) || !isnum(b)`. Fail if either operand is not a numeric value.
+1. `b == 0`. Fail if `b` is equal to any type of zero.
+
+Impact of successful execution:
+* stack memory use reduced (one element removed)
+* number of elements on stack is reduced by one
+
+Unit tests:
+1. `a b OP_MOD -> failure` where `!isnum(a)` or `!isnum(b)`. Both operands must be numeric values.
+2. `a 0 OP_MOD -> failure`. Division by positive zero (all sizes), negative zero (all sizes), `OP_0` 
+3. `27 7 OP_MOD -> 6`, `27 -7 OP_MOD -> 6`, `-27 7 OP_MOD -> -6`, `-27 -7 OP_MOD -> -6`. Check negative operands.
+  *Pay attention to sign*.
+4. check valid results for operands of different lengths `0..4` and returning result zero
+
 
 ## OP_CHECKDATASIG
+
+    Opcode (decimal): 186
+    Opcode (hex): 0xba
+    
 `OP_CHECKDATASIG` checks whether a signature is valid with respect to a message and a public key. It allows Script to validate arbitrary messages from outside the blockchain.
 
-`sig msg pubKey OP_CHECKDATASIG → out`
+	sig msg pubKey OP_CHECKDATASIG → out
 
 If the stack is well formed, then `OP_CHECKDATASIG` pops the top three elements [`sig`, `msg`, `pubKey`] from the stack and pushes true onto the stack if `sig` is valid with respect to the raw single-SHA256 hash of `msg` and `pubKey` using the secp256k1 elliptic curve. Otherwise, it pops three elements and pushes false onto the stack in the case that `sig` is the empty string and fails in all other cases.
 
@@ -122,8 +256,13 @@ in this order where `pubKey` is the top element and
 
 
 ## OP_CHECKDATASIGVERIFY
+
+    Opcode (decimal): 187
+    Opcode (hex): 0xbb
+
 `OP_CHECKDATASIGVERIFY` is equivalent to `OP_CHECKDATASIG` followed by `OP_VERIFY`. It leaves nothing on the stack, and will cause the script to fail immediately if the signature check does not pass.
 
+	sig msg pubKey OP_CHECKDATASIG
 
 # Compatibility
 This change will be a hard-fork to the protocol and older software has to be updated to continue to operate. 
