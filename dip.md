@@ -182,7 +182,7 @@ Unit tests:
 2. `x1 x2 OP_XOR -> x1 xor x2`. Check valid results.
 
 
-### OP_DIV
+## OP_DIV
 
     Opcode (decimal): 150
     Opcode (hex): 0x96
@@ -208,7 +208,7 @@ Unit tests:
   *Pay attention to sign*.
 4. check valid results for operands of different lengths `0..4`
     
-### OP_MOD
+## OP_MOD
 
     Opcode (decimal): 151
     Opcode (hex): 0x97
