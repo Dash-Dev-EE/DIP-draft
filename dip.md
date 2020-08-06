@@ -10,12 +10,10 @@ License: MIT License
 </pre>
 
 # Abstract
-This DIP describes reactivation of a disabled opcodes (`OP_CAT`, `OP_AND`, `OP_OR`, `OP_XOR`, `OP_DIV`, `OP_MOD`) and activation of new opcodes (`OP_SPLIT`, `OP_BIN2NUM`, `OP_NUM2BIN`, `OP_CHECKDATASIG` and `OP_CHECKDATASIGVERIFY`) to expand the use of Dash scripting system for transactions.
+This DIP describes reactivation of a disabled opcodes (`OP_CAT`, `OP_AND`, `OP_OR`, `OP_XOR`, `OP_DIV`, `OP_MOD`) and activation of new opcodes (`OP_SPLIT`, `OP_BIN2NUM`, `OP_NUM2BIN`, `OP_CHECKDATASIG` and `OP_CHECKDATASIGVERIFY`) to expand the use of Dash scripting system.
 
 # Motivation
-Several opcodes were disabled in the Bitcoin scripting system due to discovery of series of bugs in early days of Bitcoin (2010-2011). The functionality of these opcodes has been re-examined by Bitcoin Cash developers few years ago and many of the disabled opcodes has been enabled, and few of them were re-designed to replace the original ones. In addition, they have implemented couple of completely new opcodes which will further expand the use of Bitcoin scripting system and enables to build new solutions.
-
-One use case is a trustless smart card payment system where the use of these new opcodes removes the need for on card UTXO (unspent transaction output) management and results in more reliable and faster system.
+Several opcodes were disabled in the Bitcoin scripting system due to discovery of series of bugs in early days of Bitcoin. The functionality of these opcodes has been re-examined by Bitcoin Cash developers few years ago. Many of the disabled opcodes has been enabled and few of them re-designed to replace the original ones. In addition, couple of new opcodes have been written and implemented which will further expand the use of Bitcoin scripting system enabling to build new solutions.
 
 # Specification
 |Word                  |OpCode |Hex |Input |Output  | Description                                           |
@@ -150,7 +148,7 @@ References:
     Opcode (decimal): 150
     Opcode (hex): 0x96
     
-Return the integer quotient of `a` and `b`.  If the result would be a non-integer it is rounded *towards* zero. `a` and `b` are interpreted as numeric values.
+Return the integer quotient of `a` and `b`. If the result would be a non-integer it is rounded *towards* zero. `a` and `b` are interpreted as numeric values.
 
     a b OP_DIV -> out
     
@@ -163,7 +161,7 @@ References:
     Opcode (decimal): 151
     Opcode (hex): 0x97
 
-Returns the remainder after dividing `a` by `b`.  The output will be represented using the least number of bytes required. `a` and `b` are interpreted as numeric values.
+Returns the remainder after dividing `a` by `b`. The output will be represented using the least number of bytes required. `a` and `b` are interpreted as numeric values.
 
 	a b OP_MOD -> out
 
@@ -200,7 +198,7 @@ References:
     Opcode (decimal): 187
     Opcode (hex): 0xbb
 
-`OP_CHECKDATASIGVERIFY` is equivalent to `OP_CHECKDATASIG` followed by `OP_VERIFY`. It leaves nothing on the stack, and will cause the script to fail immediately if the signature check does not pass.
+`OP_CHECKDATASIGVERIFY` is equivalent to `OP_CHECKDATASIG` followed by `OP_VERIFY`. It leaves nothing on the stack and will cause the script to fail immediately if the signature check does not pass.
 
 	sig msg pubKey OP_CHECKDATASIG
 
@@ -224,6 +222,8 @@ This change will be a hard-fork to the protocol and older software has to be upd
 * Bitcoin Cash OP_SPLIT implementation: https://reviews.bitcoinabc.org/D1099
 * Bitcoin Cash OP_BIN2NUM implementation: https://reviews.bitcoinabc.org/D1101
 * Bitcoin Cash OP_NUM2BIN implementation: https://reviews.bitcoinabc.org/D1103
+* Bitcoin Cash OP_AND, OP_OR and OP_XOR implementation: https://reviews.bitcoinabc.org/D1211
+* Bitcoin Cash OP_DIV and OP_MOD implementation: https://reviews.bitcoinabc.org/D1212
 
 # Copyright
 This document is licensed under the [MIT License](https://opensource.org/licenses/MIT).
