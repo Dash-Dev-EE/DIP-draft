@@ -123,22 +123,19 @@ Boolean *xor* between each bit in the operands.
     Opcode (decimal): 150
     Opcode (hex): 0x96
     
-Return the integer quotient of `a` and `b`.  If the result would be a non-integer it is rounded *towards* zero.
+Return the integer quotient of `a` and `b`.  If the result would be a non-integer it is rounded *towards* zero. `a` and `b` are interpreted as numeric values.
 
     a b OP_DIV -> out
     
-    where a and b are interpreted as numeric values
     
 ## OP_MOD
 
     Opcode (decimal): 151
     Opcode (hex): 0x97
 
-Returns the remainder after dividing a by b.  The output will be represented using the least number of bytes required. 
+Returns the remainder after dividing `a` by `b`.  The output will be represented using the least number of bytes required. `a` and `b` are interpreted as numeric values.
 
 	a b OP_MOD -> out
-	
-	where a and b are interpreted as numeric values
 
 
 ## OP_CHECKDATASIG
