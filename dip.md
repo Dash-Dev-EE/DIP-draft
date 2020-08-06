@@ -46,7 +46,7 @@ Example:
 
 References:
 * [Detailed specification in Bitcoin Cash](https://github.com/bitcoincashorg/bitcoincash.org/blob/master/spec/may-2018-reenabled-opcodes.md#op_cat)
-* [Reference implementation in Bitcoin ABC](https://reviews.bitcoinabc.org/D1097)
+* [Implementation in Bitcoin ABC](https://reviews.bitcoinabc.org/D1097)
 
 ## OP_SPLIT
 
@@ -68,7 +68,7 @@ Examples:
 
 References:
 * [Detailed specification in Bitcoin Cash](https://github.com/bitcoincashorg/bitcoincash.org/blob/master/spec/may-2018-reenabled-opcodes.md#op_split)
-* [Reference implementation in Bitcoin ABC](https://reviews.bitcoinabc.org/D1099)
+* [Implementation in Bitcoin ABC](https://reviews.bitcoinabc.org/D1099)
 
 ## OP_NUM2BIN
 
@@ -85,7 +85,7 @@ Examples:
 
 References:
 * [Detailed specification in Bitcoin Cash](https://github.com/bitcoincashorg/bitcoincash.org/blob/master/spec/may-2018-reenabled-opcodes.md#op_num2bin)
-* [Reference implementation in Bitcoin ABC](https://reviews.bitcoinabc.org/D1222)
+* [Implementation in Bitcoin ABC](https://reviews.bitcoinabc.org/D1222)
 
 ## OP_BIN2NUM
 
@@ -104,7 +104,7 @@ Examples:
 
 References:
 * [Detailed specification in Bitcoin Cash](https://github.com/bitcoincashorg/bitcoincash.org/blob/master/spec/may-2018-reenabled-opcodes.md#op_bin2num)
-* [Reference implementation in Bitcoin ABC](https://reviews.bitcoinabc.org/D1220)
+* [Implementation in Bitcoin ABC](https://reviews.bitcoinabc.org/D1220)
 
 ## OP_AND
 
@@ -117,7 +117,7 @@ Boolean *and* between each bit in the operands.
 
 References:
 * [Detailed specification in Bitcoin Cash](https://github.com/bitcoincashorg/bitcoincash.org/blob/master/spec/may-2018-reenabled-opcodes.md#op_and)
-* [Reference implementation in Bitcoin ABC](https://reviews.bitcoinabc.org/D1211)
+* [Implementation in Bitcoin ABC](https://reviews.bitcoinabc.org/D1211)
 
 ## OP_OR
 
@@ -130,7 +130,7 @@ Boolean *or* between each bit in the operands.
 	
 References:
 * [Detailed specification in Bitcoin Cash](https://github.com/bitcoincashorg/bitcoincash.org/blob/master/spec/may-2018-reenabled-opcodes.md#op_or)
-* [Reference implementation in Bitcoin ABC](https://reviews.bitcoinabc.org/D1211)
+* [Implementation in Bitcoin ABC](https://reviews.bitcoinabc.org/D1211)
 
 ## OP_XOR
 
@@ -143,7 +143,7 @@ Boolean *xor* between each bit in the operands.
 
 References:
 * [Detailed specification in Bitcoin Cash](https://github.com/bitcoincashorg/bitcoincash.org/blob/master/spec/may-2018-reenabled-opcodes.md#op_xor)
-* [Reference implementation in Bitcoin ABC](https://reviews.bitcoinabc.org/D1211)
+* [Implementation in Bitcoin ABC](https://reviews.bitcoinabc.org/D1211)
 
 ## OP_DIV
 
@@ -156,7 +156,7 @@ Return the integer quotient of `a` and `b`.  If the result would be a non-intege
     
 References:
 * [Detailed specification in Bitcoin Cash](https://github.com/bitcoincashorg/bitcoincash.org/blob/master/spec/may-2018-reenabled-opcodes.md#op_div)
-* [Reference implementation in Bitcoin ABC](https://reviews.bitcoinabc.org/D1212)
+* [Implementation in Bitcoin ABC](https://reviews.bitcoinabc.org/D1212)
 
 ## OP_MOD
 
@@ -169,7 +169,7 @@ Returns the remainder after dividing `a` by `b`.  The output will be represented
 
 References:
 * [Detailed specification in Bitcoin Cash](https://github.com/bitcoincashorg/bitcoincash.org/blob/master/spec/may-2018-reenabled-opcodes.md#op_mod)
-* [Reference implementation in Bitcoin ABC](https://reviews.bitcoinabc.org/D1212)
+* [Implementation in Bitcoin ABC](https://reviews.bitcoinabc.org/D1212)
 
 ## OP_CHECKDATASIG
 
@@ -192,7 +192,7 @@ in this order where `pubKey` is the top element and
 
 References:
 * [Detailed specification in Bitcoin Cash](https://github.com/bitcoincashorg/bitcoincash.org/blob/master/spec/op_checkdatasig.md#op_checkdatasig-specification)
-* [Reference implementation in Bitcoin ABC](https://reviews.bitcoinabc.org/D1621)
+* [Implementation in Bitcoin ABC](https://reviews.bitcoinabc.org/D1621)
   * Implementation updates: [1](https://reviews.bitcoinabc.org/D1646), [2](https://reviews.bitcoinabc.org/D1653), [3](https://reviews.bitcoinabc.org/D1666)
   
 ## OP_CHECKDATASIGVERIFY
@@ -206,7 +206,7 @@ References:
 
 References:
 * [Detailed specification in Bitcoin Cash](https://github.com/bitcoincashorg/bitcoincash.org/blob/master/spec/op_checkdatasig.md#op_checkdatasigverify-specification)
-* [Reference implementation in Bitcoin ABC](https://reviews.bitcoinabc.org/D1621)
+* [Implementation in Bitcoin ABC](https://reviews.bitcoinabc.org/D1621)
   * Implementation updates: [1](https://reviews.bitcoinabc.org/D1646), [2](https://reviews.bitcoinabc.org/D1653), [3](https://reviews.bitcoinabc.org/D1666)
 
 # Compatibility
