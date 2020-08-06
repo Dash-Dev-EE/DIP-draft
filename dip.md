@@ -115,7 +115,7 @@ Examples:
 * `0x800005 OP_BIN2NUM → 0x85`
 
 The operator must fail if:
-* the numeric value is out of the range of acceptable numeric values.
+1. the numeric value is out of the range of acceptable numeric values.
 
 ## OP_AND
 
@@ -130,7 +130,7 @@ Notes:
 * where `len(x1) == 0` and `len(x2) == 0` the output will be an empty array.
 
 The operator must fail if:
-1. `len(x1) != len(x2)`. The two operands must be the same size.
+* `len(x1) != len(x2)`. The two operands must be the same size.
 
 
 ## OP_OR
@@ -143,7 +143,7 @@ Boolean *or* between each bit in the operands.
 	x1 x2 OP_OR -> out
 	
 The operator must fail if:
-1. `len(x1) != len(x2)`. The two operands must be the same size.
+* `len(x1) != len(x2)`. The two operands must be the same size.
 
 
 ## OP_XOR
@@ -156,7 +156,7 @@ Boolean *xor* between each bit in the operands.
 	x1 x2 OP_XOR -> out
 	
 The operator must fail if:
-1. `len(x1) != len(x2)`. The two operands must be the same size.
+* `len(x1) != len(x2)`. The two operands must be the same size.
 
 
 ## OP_DIV
@@ -171,8 +171,8 @@ Return the integer quotient of `a` and `b`.  If the result would be a non-intege
     where a and b are interpreted as numeric values
     
 The operator must fail if:
-1. `!isnum(a) || !isnum(b)`. Fail if either operand is not a numeric value.
-1. `b == 0`. Fail if `b` is equal to any type of zero.
+* `!isnum(a) || !isnum(b)`. Fail if either operand is not a numeric value.
+* `b == 0`. Fail if `b` is equal to any type of zero.
     
 ## OP_MOD
 
@@ -186,8 +186,8 @@ Returns the remainder after dividing a by b.  The output will be represented usi
 	where a and b are interpreted as numeric values
 	
 The operator must fail if:
-1. `!isnum(a) || !isnum(b)`. Fail if either operand is not a numeric value.
-1. `b == 0`. Fail if `b` is equal to any type of zero.
+* `!isnum(a) || !isnum(b)`. Fail if either operand is not a numeric value.
+* `b == 0`. Fail if `b` is equal to any type of zero.
 
 ## OP_CHECKDATASIG
 
