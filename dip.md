@@ -132,14 +132,6 @@ Notes:
 The operator must fail if:
 1. `len(x1) != len(x2)`. The two operands must be the same size.
 
-Impact of successful execution:
-* stack memory use reduced by `len(x1)`
-* number of elements on stack is reduced by one
-
-Unit tests:
-
-1. `x1 x2 OP_AND -> failure`, where `len(x1) != len(x2)`. The two operands must be the same size.
-2. `x1 x2 OP_AND -> x1 & x2`. Check valid results.
 
 ## OP_OR
 
@@ -153,13 +145,6 @@ Boolean *or* between each bit in the operands.
 The operator must fail if:
 1. `len(x1) != len(x2)`. The two operands must be the same size.
 
-Impact of successful execution:
-* stack memory use reduced by `len(x1)`
-* number of elements on stack is reduced by one
-
-Unit tests:
-1. `x1 x2 OP_OR -> failure`, where `len(x1) != len(x2)`. The two operands must be the same size.
-2. `x1 x2 OP_OR -> x1 | x2`. Check valid results.
 
 ## OP_XOR
 
@@ -172,14 +157,6 @@ Boolean *xor* between each bit in the operands.
 	
 The operator must fail if:
 1. `len(x1) != len(x2)`. The two operands must be the same size.
-
-Impact of successful execution:
-* stack memory use reduced by `len(x1)`
-* number of elements on stack is reduced by one
-
-Unit tests:
-1. `x1 x2 OP_XOR -> failure`, where `len(x1) != len(x2)`. The two operands must be the same size.
-2. `x1 x2 OP_XOR -> x1 xor x2`. Check valid results.
 
 
 ## OP_DIV
@@ -196,17 +173,6 @@ Return the integer quotient of `a` and `b`.  If the result would be a non-intege
 The operator must fail if:
 1. `!isnum(a) || !isnum(b)`. Fail if either operand is not a numeric value.
 1. `b == 0`. Fail if `b` is equal to any type of zero.
-
-Impact of successful execution:
-* stack memory use reduced
-* number of elements on stack is reduced by one
-
-Unit tests:
-1. `a b OP_DIV -> failure` where `!isnum(a)` or `!isnum(b)`. Both operands must be numeric values
-2. `a 0 OP_DIV -> failure`. Division by positive zero (all sizes), negative zero (all sizes), `OP_0` 
-3. `27 7 OP_DIV -> 3`, `27 -7 OP_DIV -> -3`, `-27 7 OP_DIV -> -3`, `-27 -7 OP_DIV -> 3`. Check negative operands.
-  *Pay attention to sign*.
-4. check valid results for operands of different lengths `0..4`
     
 ## OP_MOD
 
@@ -222,18 +188,6 @@ Returns the remainder after dividing a by b.  The output will be represented usi
 The operator must fail if:
 1. `!isnum(a) || !isnum(b)`. Fail if either operand is not a numeric value.
 1. `b == 0`. Fail if `b` is equal to any type of zero.
-
-Impact of successful execution:
-* stack memory use reduced (one element removed)
-* number of elements on stack is reduced by one
-
-Unit tests:
-1. `a b OP_MOD -> failure` where `!isnum(a)` or `!isnum(b)`. Both operands must be numeric values.
-2. `a 0 OP_MOD -> failure`. Division by positive zero (all sizes), negative zero (all sizes), `OP_0` 
-3. `27 7 OP_MOD -> 6`, `27 -7 OP_MOD -> 6`, `-27 7 OP_MOD -> -6`, `-27 -7 OP_MOD -> -6`. Check negative operands.
-  *Pay attention to sign*.
-4. check valid results for operands of different lengths `0..4` and returning result zero
-
 
 ## OP_CHECKDATASIG
 
