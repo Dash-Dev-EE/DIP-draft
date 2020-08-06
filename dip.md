@@ -44,9 +44,6 @@ One use case is a trustless smart card payment system where the use of these new
 Example:
 * `0x11 0x2233 OP_CAT → 0x112233`
 
-The operator must fail if:
-* `len(out) > MAX_SCRIPT_ELEMENT_SIZE`.
-
 ## OP_SPLIT
 
     Opcode (decimal): 127
@@ -65,20 +62,6 @@ Examples:
 * `0x001122 2 OP_SPLIT → 0x0011 0x22`
 * `0x001122 3 OP_SPLIT → 0x001122 OP_0`
 
-
-Notes:
-* `x` is split at position `n`, where `n` is the number of bytes from the beginning
-* `x1` will be the first `n` bytes of `x` and `x2` will be the remaining bytes 
-* if `n == 0`, then `x1` is the empty array and `x2 == x`
-* if `n == len(x)` then `x1 == x` and `x2` is the empty array.
-* if `n > len(x)`, then the operator must fail.
-
-The operator must fail if:
-* `!isnum(''n'')`. Fail if `n` is not a number.
-* `n < 0`. Fail if `n` is negative.
-* `n > len(x)`. Fail if `n` is too high.
-
-
 ## OP_NUM2BIN
 
     Opcode (decimal): 128
@@ -91,13 +74,6 @@ The operator must fail if:
 Examples:
 * `0x02 4 OP_NUM2BIN → 0x00000002`
 * `0x85 4 OP_NUM2BIN → 0x80000005`
-
-
-The operator must fail if:
-* `n` or `m` are not valid numeric values.
-* `m < len(n)`. `n` is a valid numeric value, therefore it must already be in minimal representation, so it cannot fit into a byte array which is smaller than the length of `n`.
-* `m` > `MAX_SCRIPT_ELEMENT_SIZE`. The result would be too large.
-
 
 ## OP_BIN2NUM
 
@@ -114,9 +90,6 @@ Examples:
 * `0x0000000002 OP_BIN2NUM → 0x02`
 * `0x800005 OP_BIN2NUM → 0x85`
 
-The operator must fail if:
-1. the numeric value is out of the range of acceptable numeric values.
-
 ## OP_AND
 
     Opcode (decimal): 132
@@ -126,13 +99,6 @@ Boolean *and* between each bit in the operands.
 
 	x1 x2 OP_AND -> out
 
-Notes:
-* where `len(x1) == 0` and `len(x2) == 0` the output will be an empty array.
-
-The operator must fail if:
-* `len(x1) != len(x2)`. The two operands must be the same size.
-
-
 ## OP_OR
 
     Opcode (decimal): 133
@@ -141,9 +107,6 @@ The operator must fail if:
 Boolean *or* between each bit in the operands.
 
 	x1 x2 OP_OR -> out
-	
-The operator must fail if:
-* `len(x1) != len(x2)`. The two operands must be the same size.
 
 
 ## OP_XOR
@@ -155,10 +118,6 @@ Boolean *xor* between each bit in the operands.
 
 	x1 x2 OP_XOR -> out
 	
-The operator must fail if:
-* `len(x1) != len(x2)`. The two operands must be the same size.
-
-
 ## OP_DIV
 
     Opcode (decimal): 150
@@ -170,10 +129,6 @@ Return the integer quotient of `a` and `b`.  If the result would be a non-intege
     
     where a and b are interpreted as numeric values
     
-The operator must fail if:
-* `!isnum(a) || !isnum(b)`. Fail if either operand is not a numeric value.
-* `b == 0`. Fail if `b` is equal to any type of zero.
-    
 ## OP_MOD
 
     Opcode (decimal): 151
@@ -184,10 +139,7 @@ Returns the remainder after dividing a by b.  The output will be represented usi
 	a b OP_MOD -> out
 	
 	where a and b are interpreted as numeric values
-	
-The operator must fail if:
-* `!isnum(a) || !isnum(b)`. Fail if either operand is not a numeric value.
-* `b == 0`. Fail if `b` is equal to any type of zero.
+
 
 ## OP_CHECKDATASIG
 
