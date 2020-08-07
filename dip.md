@@ -111,7 +111,7 @@ References:
 
 Boolean *and* between each bit in the operands.
 
-	x1 x2 OP_AND -> out
+	x1 x2 OP_AND → out
 
 References:
 * [Detailed specification in Bitcoin Cash](https://github.com/bitcoincashorg/bitcoincash.org/blob/master/spec/may-2018-reenabled-opcodes.md#op_and)
@@ -124,7 +124,7 @@ References:
 
 Boolean *or* between each bit in the operands.
 
-	x1 x2 OP_OR -> out
+	x1 x2 OP_OR → out
 	
 References:
 * [Detailed specification in Bitcoin Cash](https://github.com/bitcoincashorg/bitcoincash.org/blob/master/spec/may-2018-reenabled-opcodes.md#op_or)
@@ -137,7 +137,7 @@ References:
 
 Boolean *xor* between each bit in the operands.
 
-	x1 x2 OP_XOR -> out
+	x1 x2 OP_XOR → out
 
 References:
 * [Detailed specification in Bitcoin Cash](https://github.com/bitcoincashorg/bitcoincash.org/blob/master/spec/may-2018-reenabled-opcodes.md#op_xor)
@@ -150,7 +150,7 @@ References:
     
 Return the integer quotient of `a` and `b`. If the result would be a non-integer it is rounded *towards* zero. `a` and `b` are interpreted as numeric values.
 
-    a b OP_DIV -> out
+    a b OP_DIV → out
     
 References:
 * [Detailed specification in Bitcoin Cash](https://github.com/bitcoincashorg/bitcoincash.org/blob/master/spec/may-2018-reenabled-opcodes.md#op_div)
@@ -163,7 +163,7 @@ References:
 
 Returns the remainder after dividing `a` by `b`. The output will be represented using the least number of bytes required. `a` and `b` are interpreted as numeric values.
 
-	a b OP_MOD -> out
+	a b OP_MOD → out
 
 References:
 * [Detailed specification in Bitcoin Cash](https://github.com/bitcoincashorg/bitcoincash.org/blob/master/spec/may-2018-reenabled-opcodes.md#op_mod)
@@ -179,14 +179,6 @@ References:
 	sig msg pubKey OP_CHECKDATASIG → out
 
 If the stack is well formed, then `OP_CHECKDATASIG` pops the top three elements [`sig`, `msg`, `pubKey`] from the stack and pushes true onto the stack if `sig` is valid with respect to the raw single-SHA256 hash of `msg` and `pubKey` using the secp256k1 elliptic curve. Otherwise, it pops three elements and pushes false onto the stack in the case that `sig` is the empty string and fails in all other cases.
-
-The operator must fail if:
-* Stack is not well formed. To be well formed, the stack must contain at least three elements
-[`sig`, `msg`, `pubKey`]
-in this order where `pubKey` is the top element and
-  * `pubKey` must be a validly encoded public key
-  * `msg` can be any string
-  * `sig` must follow the strict DER encoding and the S-value of `sig` must be at most the curve order divided by 2.
 
 References:
 * [Detailed specification in Bitcoin Cash](https://github.com/bitcoincashorg/bitcoincash.org/blob/master/spec/op_checkdatasig.md#op_checkdatasig-specification)
