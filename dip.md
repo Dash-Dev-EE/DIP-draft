@@ -1,9 +1,7 @@
 <pre>
-DIP: 0011
 Title: Activating old and implementing new opcodes
 Author: Mart Mangus
 Status: Draft
-Type: Standard
 Layer: Consensus (hard fork)
 Created: 2020-06-01
 License: MIT License
