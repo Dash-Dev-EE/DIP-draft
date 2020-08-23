@@ -1,6 +1,7 @@
 <pre>
 Title: Activating old and implementing new opcodes
 Author: Mart Mangus
+Comments: https://github.com/Dash-Dev-EE/DIP-draft/issues
 Status: Draft
 Layer: Consensus (hard fork)
 Created: 2020-06-01
